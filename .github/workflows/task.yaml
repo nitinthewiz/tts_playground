@@ -23,9 +23,31 @@ jobs:
     - name: List TTS available models
       run: |
         tts --list_models
-    - name: Run tts CLI
+    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
       run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." --model_name tts_models/en/ljspeech/tacotron2-DCA --out_path ./ttsoutput/ljspeech_tacotron2_DCA.wav
+        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+          --model_name tts_models/en/ljspeech/tacotron2-DCA \
+          --out_path ./ttsoutput/ljspeech_tacotron2_DCA.wav
+    - name: Run tts CLI - tts_models/en/vctk/vits
+      run: |
+        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+          --model_name tts_models/en/vctk/vits \
+          --out_path ./ttsoutput/vctk_vits.wav
+    - name: Run tts CLI - tts_models/en/sam/tacotron-DDC
+      run: |
+        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+          --model_name tts_models/en/sam/tacotron-DDC \
+          --out_path ./ttsoutput/sam_tacotron_DDC.wav
+    - name: Run tts CLI - tts_models/en/vctk/sc-glow-tts
+      run: |
+        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+          --model_name tts_models/en/vctk/sc-glow-tts \
+          --out_path ./ttsoutput/vctk_sc_glow_tts.wav
+    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC_ph
+      run: |
+        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+          --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
+          --out_path ./ttsoutput/ljspeech_tacotron2_DCC_ph.wav
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: ${{ secrets.AWS_KEY_ID }}
