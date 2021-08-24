@@ -27,11 +27,11 @@ jobs:
       run: |
         tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." --model_name tts_models/en/ljspeech/tacotron2-DCA --out_path ./ttsoutput/ljspeech_tacotron2_DCA.wav
     - uses: shallwefootball/s3-upload-action@master
-        with:
-          aws_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: 'ttsoutput'
+      with:
+        aws_key_id: ${{ secrets.AWS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+        aws_bucket: ${{ secrets.AWS_BUCKET }}
+        source_dir: 'ttsoutput'
     # - name: Run the overall task
     #   run: |
     #     python task.py
