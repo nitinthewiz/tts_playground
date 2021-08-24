@@ -18,12 +18,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Install libsndfile1
+      run: sudo apt-get install libsndfile1
     - name: List TTS available models
       run: |
         tts --list_models
-    # - name: Run tts CLI
-    #   run: |
-    #     tts --text "Text for TTS" --model_name "<type>/<language>/<dataset>/<model_name>" --out_path folder/to/save/output.wav
+    - name: Run tts CLI
+      run: |
+        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." --out_path ./output/output1.wav
+    # --model_name "<type>/<language>/<dataset>/<model_name>" 
     # - name: Run the overall task
     #   run: |
     #     python task.py
