@@ -28,11 +28,11 @@ jobs:
         tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
           --model_name tts_models/en/ljspeech/tacotron2-DCA \
           --out_path ./ttsoutput/ljspeech_tacotron2_DCA.wav
-    - name: Run tts CLI - tts_models/en/vctk/vits
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
-          --model_name tts_models/en/vctk/vits \
-          --out_path ./ttsoutput/vctk_vits.wav
+    # - name: Run tts CLI - tts_models/en/vctk/vits
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+    #       --model_name tts_models/en/vctk/vits \
+    #       --out_path ./ttsoutput/vctk_vits.wav
     - name: Run tts CLI - tts_models/en/sam/tacotron-DDC
       run: |
         tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
