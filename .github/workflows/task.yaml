@@ -48,6 +48,11 @@ jobs:
         tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
           --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
           --out_path ./ttsoutput/ljspeech_tacotron2_DCC_ph.wav
+    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC_ph - directly pass phonemes
+      run: |
+        tts --text "ˈɪ n ð ə n j ˈu z t ə d ˈeɪ æ f ɡ ˈæ n ɪ s t ˌæ n | k ˈoʊ v ɪ d n ˈaɪ n t ˈi n | k ɚ ˈoʊ n ə v ˈaɪ ɹ ə s | ɔ s t ɹ ˈeɪ l j ə | ˈɪ n d i ə | ˈæ n d ð ə ˌʌ s ə ‖" \
+          --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
+          --out_path ./ttsoutput/phonemes_ljspeech_tacotron2_DCC_ph.wav
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: ${{ secrets.AWS_KEY_ID }}
