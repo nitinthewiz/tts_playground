@@ -33,11 +33,11 @@ jobs:
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
     #       --model_name tts_models/en/vctk/vits \
     #       --out_path ./ttsoutput/vctk_vits.wav
-    - name: Run tts CLI - tts_models/en/ek1/tacotron2
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/ek1/tacotron2 \
-          --out_path ./ttsoutput/ek1_tacotron2.wav
+    # - name: Run tts CLI - tts_models/en/ek1/tacotron2
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/ek1/tacotron2 \
+    #       --out_path ./ttsoutput/ek1_tacotron2.wav
     - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC
       run: |
         tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
