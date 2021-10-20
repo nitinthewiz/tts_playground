@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - uses: actions/checkout@v2
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        path: main
+    - uses: actions/checkout@v2
+    # - name: Checkout
+    #   uses: actions/checkout@v2
+    #   with:
+    #     path: main
     - name: Checkout tools repo
       uses: actions/checkout@v2
       with:
@@ -28,11 +28,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    # - name: Install missing dependencies
-    #   run: |
-    #     python -m pip install --upgrade mecab-python3==1.0.3
-    #     python -m pip install --upgrade unidic-lite==1.0.8
-    
     - name: Install libsndfile1
       run: sudo apt-get install libsndfile1
     
