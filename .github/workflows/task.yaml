@@ -43,8 +43,7 @@ jobs:
     - name: List TTS available models with checkout repo
       run: |
         ./TTS/bin/synthesize.py --list_models
-      with:
-        path: coqui_tts
+      working-directory: coqui_tts
     # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
     #   run: |
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
