@@ -5,6 +5,7 @@
 # wav = synthesizer.tts("This is an open-source library that generates synthetic speech!")
 # synthesizer.save_wav(wav, './ttsoutput/test_output.wav')
 
+import os
 from pathlib import Path
 from TTS.utils.synthesizer import Synthesizer
 from TTS.utils.manage import ModelManager
@@ -39,4 +40,5 @@ synthesizer = Synthesizer(
 )
 
 wav = synthesizer.tts("This is an open-source library that generates synthetic speech!")
-synthesizer.save_wav(wav, './ttsoutput/test_output.wav')
+workspace_path = os.environ['GITHUB_WORKSPACE']
+synthesizer.save_wav(wav, workspace_path + '/ttsoutput/test_output.wav')
