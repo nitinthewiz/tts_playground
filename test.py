@@ -5,7 +5,7 @@
 # wav = synthesizer.tts("This is an open-source library that generates synthetic speech!")
 # synthesizer.save_wav(wav, './ttsoutput/test_output.wav')
 
-
+from pathlib import Path
 from TTS.utils.synthesizer import Synthesizer
 from TTS.utils.manage import ModelManager
 
