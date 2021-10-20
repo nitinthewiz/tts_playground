@@ -1,2 +1,4 @@
-TTS==0.2.0
 torch>=1.7
+mecab-python3==1.0.3
+unidic-lite
+TTS==0.2.0
