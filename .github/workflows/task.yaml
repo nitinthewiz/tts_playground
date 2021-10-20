@@ -24,21 +24,27 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
     - name: Install libsndfile1
       run: sudo apt-get install libsndfile1
     
-    - name: List TTS available models
-      run: |
-        tts --list_models
+    # - name: List TTS available models
+    #   run: |
+    #     tts --list_models
 
     - name: List TTS available models with checkout repo
       run: |
         ./TTS/bin/synthesize.py --list_models
       working-directory: coqui_tts
+
+    - name: Copy test file to correct path
+      run: |
+        cp test.py ./coqui_tts/TTS/bin/test.py
     # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
     #   run: |
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
@@ -95,9 +101,12 @@ jobs:
     #     tts --text "ˈɪ n ð ə n j ˈu z t ə d ˈeɪ æ f ɡ ˈæ n ɪ s t ˌæ n | k ˈoʊ v ɪ d n ˈaɪ n t ˈi n | k ɚ ˈoʊ n ə v ˈaɪ ɹ ə s | ɔ s t ɹ ˈeɪ l j ə | ˈɪ n d i ə | ˈæ n d ð ə ˌʌ s ə ‖" \
     #       --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
     #       --out_path ./ttsoutput/phonemes_ljspeech_tacotron2_DCC_ph.wav
-    - name: Run tts library through torch Hub
+    
+    - name: Run tts library
       run: |
-        python test.py
+        python ./TTS/bin/test.py
+      working-directory: coqui_tts
+      
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: ${{ secrets.AWS_KEY_ID }}
