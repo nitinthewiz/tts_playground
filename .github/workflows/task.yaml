@@ -9,7 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    # - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: main
+    - name: Checkout tools repo
+      uses: actions/checkout@v2
+      with:
+        repository: coqui-ai/TTS
+        path: coqui_tts
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -18,15 +28,23 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Install missing dependencies
-      run: |
-        python -m pip install --upgrade mecab-python3==1.0.3
-        python -m pip install --upgrade unidic-lite==1.0.8
+    # - name: Install missing dependencies
+    #   run: |
+    #     python -m pip install --upgrade mecab-python3==1.0.3
+    #     python -m pip install --upgrade unidic-lite==1.0.8
+    
     - name: Install libsndfile1
       run: sudo apt-get install libsndfile1
+    
     - name: List TTS available models
       run: |
         tts --list_models
+
+    - name: List TTS available models with checkout repo
+      run: |
+        ./TTS/bin/synthesize.py --list_models
+      with:
+        path: coqui_tts
     # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
     #   run: |
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
