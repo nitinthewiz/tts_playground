@@ -23,62 +23,65 @@ jobs:
     - name: List TTS available models
       run: |
         tts --list_models
-    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
-          --model_name tts_models/en/ljspeech/tacotron2-DCA \
-          --out_path ./ttsoutput/ljspeech_tacotron2_DCA.wav
-    # - name: Run tts CLI - tts_models/en/vctk/vits
+    # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
     #   run: |
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
-    #       --model_name tts_models/en/vctk/vits \
-    #       --out_path ./ttsoutput/vctk_vits.wav
-    # - name: Run tts CLI - tts_models/en/ek1/tacotron2
+    #       --model_name tts_models/en/ljspeech/tacotron2-DCA \
+    #       --out_path ./ttsoutput/ljspeech_tacotron2_DCA.wav
+    # # - name: Run tts CLI - tts_models/en/vctk/vits
+    # #   run: |
+    # #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
+    # #       --model_name tts_models/en/vctk/vits \
+    # #       --out_path ./ttsoutput/vctk_vits.wav
+    # # - name: Run tts CLI - tts_models/en/ek1/tacotron2
+    # #   run: |
+    # #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    # #       --model_name tts_models/en/ek1/tacotron2 \
+    # #       --out_path ./ttsoutput/ek1_tacotron2.wav
+    # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC
     #   run: |
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-    #       --model_name tts_models/en/ek1/tacotron2 \
-    #       --out_path ./ttsoutput/ek1_tacotron2.wav
-    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC
+    #       --model_name tts_models/en/ljspeech/tacotron2-DDC \
+    #       --out_path ./ttsoutput/ljspeech_tacotron2_ddc.wav
+    # - name: Run tts CLI - tts_models/en/ljspeech/glow-tts
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/ljspeech/glow-tts \
+    #       --out_path ./ttsoutput/ljspeech_glow_tts.wav
+    # - name: Run tts CLI - tts_models/en/ljspeech/speedy-speech-wn
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/ljspeech/speedy-speech-wn \
+    #       --out_path ./ttsoutput/ljspeech_speedy_speech_wn.wav
+    # - name: Run tts CLI - tts_models/en/ljspeech/vits
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/ljspeech/vits \
+    #       --out_path ./ttsoutput/ljspeech_vits.wav
+    # - name: Run tts CLI - tts_models/en/sam/tacotron-DDC
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/sam/tacotron-DDC \
+    #       --out_path ./ttsoutput/sam_tacotron_DDC.wav
+    # - name: Run tts CLI - tts_models/en/vctk/sc-glow-tts - p244
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/vctk/sc-glow-tts \
+    #       --speaker_idx p244 \
+    #       --out_path ./ttsoutput/vctk_sc_glow_tts.wav
+    # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC_ph
+    #   run: |
+    #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
+    #       --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
+    #       --out_path ./ttsoutput/ljspeech_tacotron2_DCC_ph.wav
+    # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC_ph - directly pass phonemes
+    #   run: |
+    #     tts --text "ˈɪ n ð ə n j ˈu z t ə d ˈeɪ æ f ɡ ˈæ n ɪ s t ˌæ n | k ˈoʊ v ɪ d n ˈaɪ n t ˈi n | k ɚ ˈoʊ n ə v ˈaɪ ɹ ə s | ɔ s t ɹ ˈeɪ l j ə | ˈɪ n d i ə | ˈæ n d ð ə ˌʌ s ə ‖" \
+    #       --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
+    #       --out_path ./ttsoutput/phonemes_ljspeech_tacotron2_DCC_ph.wav
+    - name: Run tts library through torch Hub
       run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/ljspeech/tacotron2-DDC \
-          --out_path ./ttsoutput/ljspeech_tacotron2_ddc.wav
-    - name: Run tts CLI - tts_models/en/ljspeech/glow-tts
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/ljspeech/glow-tts \
-          --out_path ./ttsoutput/ljspeech_glow_tts.wav
-    - name: Run tts CLI - tts_models/en/ljspeech/speedy-speech-wn
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/ljspeech/speedy-speech-wn \
-          --out_path ./ttsoutput/ljspeech_speedy_speech_wn.wav
-    - name: Run tts CLI - tts_models/en/ljspeech/vits
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/ljspeech/vits \
-          --out_path ./ttsoutput/ljspeech_vits.wav
-    - name: Run tts CLI - tts_models/en/sam/tacotron-DDC
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/sam/tacotron-DDC \
-          --out_path ./ttsoutput/sam_tacotron_DDC.wav
-    - name: Run tts CLI - tts_models/en/vctk/sc-glow-tts - p244
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/vctk/sc-glow-tts \
-          --speaker_idx p244 \
-          --out_path ./ttsoutput/vctk_sc_glow_tts.wav
-    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC_ph
-      run: |
-        tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA. Also, AWS, EC2, Amazon, Facebook, and Google." \
-          --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
-          --out_path ./ttsoutput/ljspeech_tacotron2_DCC_ph.wav
-    - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DDC_ph - directly pass phonemes
-      run: |
-        tts --text "ˈɪ n ð ə n j ˈu z t ə d ˈeɪ æ f ɡ ˈæ n ɪ s t ˌæ n | k ˈoʊ v ɪ d n ˈaɪ n t ˈi n | k ɚ ˈoʊ n ə v ˈaɪ ɹ ə s | ɔ s t ɹ ˈeɪ l j ə | ˈɪ n d i ə | ˈæ n d ð ə ˌʌ s ə ‖" \
-          --model_name tts_models/en/ljspeech/tacotron2-DDC_ph \
-          --out_path ./ttsoutput/phonemes_ljspeech_tacotron2_DCC_ph.wav
+        python test.py
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: ${{ secrets.AWS_KEY_ID }}
