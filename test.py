@@ -42,7 +42,7 @@ def thisMakesAudio(
     synthesizer.save_wav(wav, workspace_path + '/ttsoutput/test_output.wav')
 
 if __name__ == '__main__':
-    f = open('./data.json')
+    f = open('data.json')
     data = json.load(f)
     for item in data:
         txt = item['summarized_article'][0]['summary_text']
