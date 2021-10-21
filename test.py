@@ -19,12 +19,14 @@ workspace_path = os.environ['GITHUB_WORKSPACE']
 def thisMakesAudio(
     speech_text,
     output_file_path,
-    model_name = 'tts_models/en/ljspeech/tacotron2-DDC',
-    vocoder_name = 'vocoder_models/en/ljspeech/hifigan_v2'):
+    model_name_in,
+    vocoder_name_in):
     path = Path(__file__).parent / "../.models.json"
     manager = ModelManager(path)
 
-    model_path, config_path, model_item = manager.download_model(model_name)
+    model_path, config_path, model_item = manager.download_model(model_name_in)
+    vocoder_name = model_item["default_vocoder"] if vocoder_name_in is None else vocoder_name_in
+
     vocoder_path, vocoder_config_path, _ = manager.download_model(vocoder_name)
 
     synthesizer = Synthesizer(
@@ -47,8 +49,24 @@ if __name__ == '__main__':
         # test = list(csv.reader(f))
         data = json.load(f)
     # f = open('data.json')
+
+    list_of_models_to_test = [
+        'tts_models/en/vctk/sc-glow-tts',
+        'tts_models/en/ljspeech/tacotron2-DDC',
+        'tts_models/en/ljspeech/tacotron2-DDC_ph',
+        'tts_models/en/ljspeech/fast_pitch',
+        'tts_models/en/ljspeech/speedy-speech',
+    ]
+
+    list_of_vocoders = [
+        'vocoder_models/en/ljspeech/hifigan_v2'
+    ]
+
+
     for item in data:
         txt = item['summarized_article'][0]['summary_text']
         uuid = item['uuid']
-        file_path = workspace_path + '/ttsoutput/' + uuid + '.wav'
-        thisMakesAudio(txt, file_path)
+        for model_in_list in list_of_models_to_test:
+            prefix = model_in_list.split("/")[-1]
+            file_path = workspace_path + '/ttsoutput/' + prefix + '_' + uuid + '.wav'
+            thisMakesAudio(txt, file_path, model_in_list)
