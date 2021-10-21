@@ -40,7 +40,11 @@ def thisMakesAudio(
         use_cuda,
     )
 
-    wav = synthesizer.tts(speech_text)
+    if model_name_in == 'tts_models/en/vctk/sc-glow-tts':
+        wav = synthesizer.tts(speech_text, 'p244')
+    else:
+        wav = synthesizer.tts(speech_text)
+
     synthesizer.save_wav(wav, output_file_path)
 
 if __name__ == '__main__':
@@ -61,7 +65,6 @@ if __name__ == '__main__':
     list_of_vocoders = [
         'vocoder_models/en/ljspeech/hifigan_v2'
     ]
-
 
     for item in data:
         txt = item['summarized_article'][0]['summary_text']
