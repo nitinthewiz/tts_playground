@@ -45,6 +45,7 @@ jobs:
     - name: Copy test file to correct path
       run: |
         cp test.py ./coqui_tts/TTS/bin/test.py
+        cp data.json ./coqui_tts/TTS/bin/data.json
     # - name: Run tts CLI - tts_models/en/ljspeech/tacotron2-DCA
     #   run: |
     #     tts --text "In the news today - Afghanistan, COVID 19, Corona Virus, Australia, India, and the USA." \
@@ -106,7 +107,7 @@ jobs:
       run: |
         python ./TTS/bin/test.py
       working-directory: coqui_tts
-      
+
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: ${{ secrets.AWS_KEY_ID }}

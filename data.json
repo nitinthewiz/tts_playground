@@ -1,7 +1,6 @@
-
-
 [
    {
+      "uuid": "DBD3C4F1-56E7-4C05-9D3E-90047AEDC260",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "South China Morning Post",
@@ -28,6 +27,7 @@
       ]
    },
    {
+      "uuid": "74E71364-5BBF-40BB-BEF0-9ABA253B2E5C",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "Boston.com",
@@ -54,6 +54,7 @@
       ]
    },
    {
+      "uuid": "0660B337-F625-466A-9083-819E55C17BC7",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "Mansion Global",
@@ -80,6 +81,7 @@
       ]
    },
    {
+      "uuid": "554DD3B2-38C6-4356-A12B-D8F2360BB2B2",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "Mercury News",
@@ -106,6 +108,7 @@
       ]
    },
    {
+      "uuid": "4BADA81C-A0EE-451D-AD13-36BD582FB4CA",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "ESPN",
@@ -132,6 +135,7 @@
       ]
    },
    {
+      "uuid": "E26871DF-EFE7-40C4-B2FA-0347A1B7DD09",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "Houston Chronicle",
@@ -158,6 +162,7 @@
       ]
    },
    {
+      "uuid": "C398195A-5BBA-44A4-B86E-FAE442BBBD3B",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "NJ.com",
@@ -184,6 +189,7 @@
       ]
    },
    {
+      "uuid": "C683678C-72DD-4DE4-B78A-7664574E14A2",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "TheStreet.com",
@@ -210,6 +216,7 @@
       ]
    },
    {
+      "uuid": "73BD812C-FCFA-45AC-9FA6-3774602A30FD",
       "source_API": "bing",
       "query_name": "Virus News - US - Bing",
       "source_article": "People",
