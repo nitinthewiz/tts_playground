@@ -38,8 +38,8 @@ def thisMakesAudio(
         use_cuda,
     )
 
-    wav = synthesizer.tts("This is an open-source library that generates synthetic speech!")
-    synthesizer.save_wav(wav, workspace_path + '/ttsoutput/test_output.wav')
+    wav = synthesizer.tts(speech_text)
+    synthesizer.save_wav(wav, output_file_path)
 
 if __name__ == '__main__':
     path = Path(__file__).parent / "data.json"
@@ -51,4 +51,4 @@ if __name__ == '__main__':
         txt = item['summarized_article'][0]['summary_text']
         uuid = item['uuid']
         file_path = workspace_path + '/ttsoutput/' + uuid + '.wav'
-    thisMakesAudio(txt, file_path)
+        thisMakesAudio(txt, file_path)
