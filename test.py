@@ -20,7 +20,7 @@ def thisMakesAudio(
     speech_text,
     output_file_path,
     model_name_in,
-    vocoder_name_in):
+    vocoder_name_in = None):
     path = Path(__file__).parent / "../.models.json"
     manager = ModelManager(path)
 
