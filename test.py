@@ -38,12 +38,14 @@ def thisMakesAudio(
     )
 
     wav = synthesizer.tts("This is an open-source library that generates synthetic speech!")
-    workspace_path = os.environ['GITHUB_WORKSPACE']
     synthesizer.save_wav(wav, workspace_path + '/ttsoutput/test_output.wav')
 
 if __name__ == '__main__':
-    f = open('data.json')
-    data = json.load(f)
+    path = Path(__file__).parent / "data.json"
+    with path.open() as f:
+        # test = list(csv.reader(f))
+        data = json.load(f)
+    # f = open('data.json')
     for item in data:
         txt = item['summarized_article'][0]['summary_text']
         uuid = item['uuid']
